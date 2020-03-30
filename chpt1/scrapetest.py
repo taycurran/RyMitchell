@@ -1,14 +1,23 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
+# Tool to Handle Exceptions
+from urllib.error import HTTPError
+
 # --- urlopen examle ---
-# html = urlopen('http://pythonscraping.com/pages/page1.html')
-# print(html.read())
+#resp = urlopen('http://pythonscraping.com/pages/page1.html')
+#print(resp.read())
 
-# bs4 takes the file object created by urlopen() and can output
-# without needing to html.read() first
+# bs4 takes the file object created by urlopen() and 
+# can output without needing to html.read() first
 
-html = urlopen('http://pythonscraping.com/pages/page1.html')
-bs = BeautifulSoup(html, 'html.parser')
+url = 'http://taylorcurran.com/'
+
+try:
+    resp = urlopen(url)
+except HTTPError as e:
+    print(e)
+else:
+bs = BeautifulSoup(resp, 'html.parser')
 print(bs.h1)
 
