@@ -18,6 +18,6 @@ try:
 except HTTPError as e:
     print(e)
 else:
-bs = BeautifulSoup(resp, 'html.parser')
-print(bs.h1)
+    bs = BeautifulSoup(resp, 'html.parser')
+    print(bs.h1)
 
