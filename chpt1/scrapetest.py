@@ -21,3 +21,23 @@ else:
     bs = BeautifulSoup(resp, 'html.parser')
     print(bs.h1)
 
+# Example of Error Handling
+
+def getTitle(url):
+    try:
+        resp = urlopen(url)
+    except HTTPError as e:
+        return None
+    try:
+        bs = BeautifulSoup(resp.read(), 'html.parser')
+        title = bs.body.h1
+    except AttributeError as e:
+        return None
+    return title
+
+
+title = getTitle(url)
+if title == None:
+    print('Title could not be found.')
+else:
+    print(title)
