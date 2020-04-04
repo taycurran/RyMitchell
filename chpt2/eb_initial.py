@@ -27,3 +27,4 @@ outer_html = '<div class="eds-event-card--consumer"><div class="eds-card eds-car
 # print('CHILDREN')
 # for child in bs.find('table', {'id':'giftList'}).children:
 #     print(child)
+
